@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+        integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Product Page</title>
+</head>
+<style>
+    body {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: 'Poppins'
+    }
+
+    .common-section {
+        display: flex;
+        justify-content: center;
+    }
+
+    .my-container {
+        width: 80%;
+    }
+
+    .sec1 {
+        box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+    }
+
+    .search {
+        margin-left: 12px;
+        cursor: pointer;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .header {
+        border-bottom: 1px solid #E2E8F0;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: #101010;
+    }
+
+    .nav-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-link {
+        font-size: 1vw;
+        font-weight: 600;
+        margin: 0 12px;
+        color: black;
+    }
+
+    .nav-link:hover {
+        color: #482ff7;
+    }
+
+    .nav-logo {
+        font-size: 1.6vw;
+        font-weight: 700;
+        color: black;
+    }
+
+    .breadcrumbs a {
+        font-size: 16px;
+        font-weight: 500;
+        color: rgb(125, 125, 155);
+    }
+
+    .breadcrumbs a.active {
+        color: black;
+    }
+
+    .breadcrumbs {
+        margin: 20px 0;
+    }
+
+    .sec2-inner {
+        padding-top: 50px;
+        box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+        display: flex;
+        position: relative;
+    }
+
+    .sec2-left {
+        padding: 5px 0 0 80px;
+        margin-right: 70px;
+    }
+
+    .sec2-right {
+        overflow: hidden;
+    }
+
+    .sec2-top h2 {
+        font-size: 28px;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        color: #000000;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: -10px;
+    }
+
+    .sec2-text {
+        display: flex;
+        align-items: center;
+    }
+
+    .sec2-top h3 {
+        font-size: 23px;
+        color: #696a8c;
+        font-weight: 300;
+        margin-right: 15px;
+    }
+
+    .sec2-top img {
+        height: 20px
+    }
+
+    .sec2-top h4 {
+        font-size: 12px;
+        color: #000033;
+        font-weight: 300;
+        padding: 5px 8px;
+        background-color: rgb(243, 249, 251);
+        margin-left: 25px;
+    }
+
+    .mobile-colors {
+        display: flex;
+    }
+
+    .mobile-colors div {
+        height: 25px;
+        width: 25px;
+        margin-right: 15px;
+    }
+
+    .mobile-colors div:nth-child(1) {
+        background-color: rgb(79, 75, 101)
+    }
+
+    .mobile-colors div:nth-child(2) {
+        background-color: rgb(179, 169, 155)
+    }
+
+    .mobile-colors div:nth-child(3) {
+        background-color: rgb(15, 15, 17)
+    }
+
+    .sec2-price {
+        display: flex;
+        align-items: center;
+    }
+
+    .sec2-top h5 {
+        font-size: 23px;
+        letter-spacing: 1px;
+        color: #607cff;
+        font-weight: 500;
+    }
+
+    .sec2-top button {
+        border: none;
+        outline: none;
+        background-color: #607cff;
+        color: white;
+        width: 180px;
+        height: 50px;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-left: 50px;
+        cursor: pointer;
+    }
+
+    .rating {
+        position: absolute;
+        right: 30px;
+        top: 80px;
+        display: flex;
+    }
+
+    .rating img:nth-child(1) {
+        height: 30px;
+        margin-right: 20px;
+        position: relative;
+        top: 7px;
+    }
+
+    .rating img:nth-child(3) {
+        height: 16px;
+    }
+
+    .rating h2 {
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: #696a8c;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 3px;
+    }
+
+    .sec2-compare label {
+        border: 1px solid;
+        display: inline-block;
+        padding: 0 10px;
+    }
+
+    #compare {
+        width: 27px;
+        height: 27px;
+        position: relative;
+        top: 8px;
+        left: 8px;
+    }
+
+    .rating h3 {
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: #696a8c;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: rgb(99, 127, 255);
+        padding: 5px 5px 5px 0;
+        color: white;
+
+    }
+
+    .rating h3 span {
+        background-color: rgb(21, 207, 181);
+        padding: 5px;
+        margin-right: 10px;
+    }
+
+    .sec2-mid {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .sec2-mid-block {
+        width: 190px;
+    }
+
+
+    .sec2-mid h2 {
+        font-size: 24px;
+        color: #696a8c;
+        font-weight: 300;
+        margin: 30px 0;
+    }
+
+    .sec2-mid h3 {
+        font-size: 15px;
+        color: #696a8c;
+        font-weight: 300;
+    }
+
+    .sec2-mid-block img {
+        height: 30px;
+    }
+
+    .sec2-bottom {
+        display: flex;
+        border-top: 1px solid #696a8c;
+        margin-top: 20px;
+        padding-top: 22px;
+        margin-bottom: 20px;
+    }
+
+    .sec2-bottom h2 {
+        font-size: 18px;
+        color: black;
+        font-weight: 600;
+        display: inline-block;
+        margin: 0;
+        margin-left: 5px;
+    }
+
+    .sec2-bottom p {
+        font-size: 13px;
+        line-height: 18px;
+        color: #696a8c;
+        font-weight: 300;
+        margin-top: 2px;
+    }
+
+    .sec2-bottom-block {
+        margin-right: 10%;
+    }
+
+    .sec2-foot {
+        display: flex;
+        box-shadow: 0 1px 3px 0 rgb(32 33 36 / 28%);
+    }
+
+    .sec2-foot-block {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 15px 0;
+        height: 50px;
+    }
+
+    .sec2 .owl-carousel .owl-item img {
+        width: 25px !important;
+    }
+
+    .sec2-foot .current {
+        background-color: rgb(96, 124, 255);
+    }
+
+    .sec2-foot .current h6 {
+        color: white;
+    }
+
+    .sec2-foot {
+        background-color: rgb(244, 249, 252);
+    }
+
+    .sec2-foot img {
+        margin-bottom: 10px;
+    }
+
+    .sec2-foot h6 {
+        font-size: 13px;
+        color: #696a8c;
+        font-weight: 300;
+        margin: 0px;
+    }
+
+    .sec2-bottom-block-inner {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .sec2 .owl-theme .owl-dots,
+    .owl-theme .owl-nav {
+        display: none;
+    }
+
+    .sec2 {
+        margin-bottom: 40px;
+    }
+
+    .sec3-inner {
+        display: flex;
+    }
+
+    .sec3-left {
+        width: 65%;
+        box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+        overflow: hidden;
+    }
+
+    .sec3-block-top {
+        width: 100%;
+        background-color: rgb(244, 249, 252);
+        padding: 22px 22px;
+    }
+
+    .sec3-left h2 {
+        font-size: 16px;
+        color: black;
+        font-weight: 800;
+        margin: 0px;
+        display: inline-block;
+        position: relative;
+        bottom: 3px;
+        margin-left: 10px;
+    }
+
+    .sec3-block-mid {
+        padding: 35px;
+        box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+    }
+
+    .sec3-text {
+        display: flex;
+    }
+
+    .sec3-text h3 {
+        font-size: 13px;
+        color: black;
+        font-weight: 800;
+        width: 200px;
+        margin-right: 15px;
+        line-height: 29px;
+        margin: 0px;
+    }
+
+    .sec3-text h4 {
+        font-size: 13px;
+        line-height: 29px;
+        color: #696a8c;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .sec3-text {
+        margin-bottom: 25px;
+    }
+
+    .sec3-right {
+        margin-left: 25px;
+    }
+
+    .sec3-right-top {
+        padding: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+        margin-bottom: 30px;
+    }
+
+    .sec3-right-mid {
+        box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+        display: inline-block;
+        width: 100%;
+    }
+
+    .sec3-right h2 {
+        font-size: 15px;
+        color: black;
+        font-weight: 800;
+        padding: 20px 0;
+        padding-left: 14px;
+        border-bottom: 1px solid rgb(224, 210, 210);
+        margin-bottom: 20px;
+    }
+
+    .sec3-mid-inner {
+        display: flex;
+        padding-left: 14px;
+        margin-bottom: 30px;
+    }
+
+    .sec3-mid-text {
+        margin-left: 30px;
+    }
+
+    .sec3-right h3 {
+        font-size: 16px;
+        color: black;
+        font-weight: 800;
+        margin: 0px;
+    }
+
+    .sec3-right h4 {
+        font-size: 14px;
+        color: #607cff;
+        font-weight: 800;
+        margin: 8px 0;
+    }
+
+    .sec3-right h5 {
+        font-size: 12px;
+        color: #696a8c;
+        font-weight: 300;
+        margin: 0;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    .sec3-mid-text img {
+        height: 15px;
+        position: relative;
+        top: 1px;
+    }
+
+    .sec3 {
+        margin-bottom: 40px;
+    }
+
+    .sec4-top {
+        padding: 30px 0;
+        display: flex;
+        align-items: center;
+        background-color: rgb(244, 249, 252);
+        padding: 22px;
+    }
+
+    .sec4-top-left {
+        display: flex;
+        align-items: center;
+        margin-right: auto;
+    }
+
+    .sec4-top-left h2 {
+        font-size: 16px;
+        color: black;
+        font-weight: 800;
+        margin: 0px;
+        margin-left: 8px;
+    }
+
+    #sort {
+        background-color: white;
+        width: 100px;
+        height: 30px;
+        margin-left: 10px;
+        border: 1px solid rgb(228, 215, 215);
+        color: rgb(141, 139, 139);
+    }
+
+    .sec4-mid {
+        margin: 20px 15px;
+    }
+
+    .sec4-mid h3 {
+        font-size: 12px;
+        line-height: 29px;
+        color: #696a8c;
+        font-weight: 300;
+        margin: 0;
+        border: 1px solid;
+        text-align: center;
+    }
+
+    .sec4 .owl-theme .owl-dots {
+        display: none;
+    }
+
+    .sec4-bottom {
+        margin-left: 22px;
+        height: 700px;
+        overflow-y: scroll;
+        margin-right: 20px;
+    }
+
+    .sec4-bottom h2 {
+        font-size: 16px;
+        color: black;
+        font-weight: 800;
+        margin: 30px 0;
+    }
+
+    .positive {
+        background-color: rgb(141, 198, 63);
+        height: 23px;
+        width: 23px;
+        display: inline-block;
+        text-align: center;
+        color: white;
+        border-radius: 20px;
+        font-weight: 400;
+        margin-right: 10px;
+    }
+
+    .negative {
+        background-color: rgb(207, 25, 21);
+        height: 23px;
+        width: 23px;
+        display: inline-block;
+        text-align: center;
+        color: white;
+        border-radius: 20px;
+        font-weight: 400;
+        margin-right: 10px;
+    }
+
+    .sec4-block-text {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .sec4-bottom h3 {
+        font-size: 13px;
+        line-height: 29px;
+        color: #696a8c;
+        font-weight: 300;
+        margin: 0;
+        margin-right: 8px;
+    }
+
+    .sec4-bottom img {
+        height: 15px;
+    }
+
+    .sec4-bottom h4 {
+        font-size: 13px;
+        line-height: 29px;
+        color: #696a8c;
+        font-weight: 300;
+        margin: 0;
+        margin-left: 8px;
+    }
+
+    .sec4-bottom p {
+        font-size: 15px;
+        line-height: 29px;
+        color: black;
+        font-weight: 600;
+        margin: 0;
+        margin-bottom: 2px;
+    }
+
+    .sec4-bottom h5 {
+        font-size: 13px;
+        line-height: 29px;
+        color: #696a8c;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .sec4-bottom-block {
+        margin-bottom: 30px;
+    }
+
+    .sec4 .my-container {
+        box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+    }
+
+    .sec5-mid {
+        padding: 22px;
+        margin-bottom: 40px;
+    }
+
+
+
+    .sec5-grey-area {
+        background-color: rgb(238, 238, 238);
+        height: 26px;
+        position: relative;
+    }
+
+    .sec5-green {
+        width: 90%;
+        background: linear-gradient(to right, rgb(67, 212, 190), rgb(162, 235, 105));
+    }
+
+    .sec5-red {
+        width: 35%;
+        background: linear-gradient(to right, rgb(240, 1, 119), rgb(254, 91, 0));
+    }
+
+    .sec5-blue {
+        width: 60%;
+        background: linear-gradient(to right, rgb(0, 192, 255), rgb(57, 210, 197));
+    }
+
+    .sec5-colors {
+        position: absolute;
+        z-index: 9;
+        top: 0;
+        height: 26px;
+    }
+
+    .comparing-parameters {
+        text-align: center;
+        position: relative;
+        top: 18px;
+
+    }
+
+    .sec5-scale {
+        position: relative;
+        width: 70%;
+        margin-left: 20px;
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .scale {
+        width: 100%;
+        height: 2px;
+        background-color: rgb(213, 213, 213);
+        display: flex;
+    }
+
+    .scale-count::after {
+        content: "|";
+        position: relative;
+        bottom: 12px;
+        left: 43px;
+        font-size: 18px;
+        color: rgb(213, 213, 213);
+    }
+
+    .scale-count {
+        flex: 1;
+    }
+
+    .sec5 {
+        margin: 40px 0;
+    }
+
+    .sec5 .my-container {
+        box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+    }
+
+    .sec5-cat {
+        font-size: 14px;
+        width: 150px;
+    }
+
+    .outer-block {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .sec5-outer-div {
+        width: 70%;
+        margin-left: 20px;
+    }
+
+    .scale-count-last::after {
+        content: "";
+        font-size: 18px;
+    }
+
+    .sec6 {
+        background-color: rgb(42, 42, 42);
+        padding: 20px 0;
+    }
+
+    .sec6 .my-container {
+        display: flex;
+    }
+
+    .sec6 h2 {
+        font-size: 21px;
+        letter-spacing: 3px;
+        line-height: 34px;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .sec6 h3 {
+        font-size: 14px;
+        line-height: 28px;
+        color: rgb(159, 159, 159);
+        font-weight: 600;
+    }
+
+    .footer-block {
+        flex: 1;
+        padding-right: 50px;
+    }
+
+    .insta-posts {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .insta-posts img {
+        margin: 0 3px;
+        width: 80px;
+        margin-bottom: 8px;
+    }
+
+    /* width */
+    /* width */
+    .sec4 ::-webkit-scrollbar {
+        width: 14px;
+        overflow: visible;
+    }
+
+    /* Track */
+    .sec4 ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    .sec4 ::-webkit-scrollbar-thumb {
+        background: rgb(99, 127, 255);
+        border-radius: 10px;
+    }
+</style>
+<style>
+    @media screen and (max-width: 1500px) {
+        .footer-block {
+            padding-right: 20px;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        .my-container {
+            width: 90%;
+        }
+
+        .sec2-mid-block {
+            width: 140px;
+        }
+
+        .sec2-mid h2 {
+            font-size: 18px;
+            margin: 30px 0;
+        }
+
+        .sec2-mid h3 {
+            font-size: 12px;
+        }
+
+        .rating {
+            right: 5px;
+            top: 100px;
+        }
+
+
+    }
+
+    @media screen and (max-width: 1000px) {
+        .footer-block {
+            padding-right: 8px;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .sec4 ::-webkit-scrollbar {
+            width: 8px;
+            overflow: visible;
+        }
+
+        .sec2-inner {
+            flex-direction: column;
+            padding-top: 20px;
+        }
+
+        .rating {
+            display: none;
+        }
+
+        .sec2-left {
+            padding: 5px 0 0 80px;
+            margin-right: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sec2-right {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sec2-left img {
+            width: 50%;
+        }
+
+        .sec2-top h2 {
+            font-size: 18px;
+            margin: 15px 0 0 0;
+            text-align: center;
+        }
+
+        .sec2-top h3 {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .sec2-top img {
+            height: 15px;
+        }
+
+        .sec2-top h4 {
+            padding: 3px 5px;
+            font-size: 10px;
+        }
+
+        .mobile-colors div {
+            height: 20px;
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .sec2-top h5 {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .sec2-top button {
+            width: 120px;
+            height: 30px;
+            font-size: 12px;
+        }
+
+        .sec2-mid {
+            flex-wrap: wrap;
+        }
+
+        .sec2-mid-block {
+            width: 50%;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sec2-mid-block img {
+            height: 24px;
+            width: 30px;
+            object-fit: contain;
+        }
+
+        .sec2-mid h2 {
+            font-size: 16px;
+            margin: 10px 0 0 0;
+        }
+
+        .sec2-mid h3 {
+            margin: 3px 0 0 0;
+        }
+
+        .sec2-bottom-block {
+            margin: 0 12px;
+            margin-bottom: 20px;
+        }
+
+        .sec2-bottom {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .sec2-bottom-block-inner,
+        .mobile-colors,
+        .sec2-text {
+            justify-content: center;
+        }
+
+        .sec2 .owl-theme .owl-dots {
+            display: block;
+            margin: 10px;
+        }
+
+        .sec2-bottom h2 {
+            font-size: 14px;
+        }
+
+        .sec2-bottom p {
+            font-size: 11px;
+        }
+
+        .sec2 {
+            margin-bottom: 15px;
+        }
+
+        .sec3-inner {
+            flex-direction: column;
+        }
+
+        .sec3-left {
+            width: 100%;
+        }
+
+        .sec3-left h2 {
+            font-size: 12px;
+            bottom: 5px;
+        }
+
+        .sec3-text h3 {
+            font-size: 10px;
+            line-height: 20px;
+            width: 160px;
+        }
+
+        .sec3-text h4 {
+            font-size: 10px;
+            line-height: 20px;
+            width: 50%;
+            margin-left: 10px;
+        }
+
+        .sec3-block-mid {
+            padding: 20px;
+        }
+
+        .sec3-block-top {
+            padding: 15px;
+        }
+
+        .sec3-right {
+            margin: 15px 0 0 0;
+        }
+
+        .sec3-right-top img {
+            width: 100%;
+        }
+
+        .sec3-right-top {
+            margin-bottom: 15px;
+        }
+
+        .sec3-right h2 {
+            font-size: 12px;
+            margin: 0;
+            margin-bottom: 20px;
+            padding: 10px 14px 14px 14px;
+        }
+
+        .sec3-mid-text {
+            margin-left: 12px;
+        }
+
+        .sec3-right h3 {
+            font-size: 12px;
+        }
+
+        .sec3-right h4 {
+            font-size: 11px;
+            margin: 5px 0;
+        }
+
+        .sec3-right h5 {
+            font-size: 11px;
+            margin-right: 2px;
+        }
+
+        .sec3-mid-text img {
+            top: 2px;
+            height: 12px;
+        }
+
+        .sec3 {
+            margin-bottom: 20px;
+        }
+
+        .sec3-mid-img img {
+            width: 50px;
+        }
+
+        .sec4 .owl-theme .owl-dots {
+            display: block;
+            margin-top: 20px;
+        }
+
+        .sec4-top-left h2 {
+            font-size: 12px;
+        }
+
+        .sec4-top-right label {
+            font-size: 12px;
+        }
+
+        #sort {
+            height: 20px;
+        }
+
+        .sec4-top {
+            padding: 14px;
+        }
+
+        .sec4-bottom h2 {
+            font-size: 12px;
+            margin: 0px 0 20px 0;
+        }
+
+        .positive,
+        .negative {
+            height: 18px;
+            width: 18px;
+        }
+
+        .sec4-bottom h3,
+        .sec4-bottom h4 {
+            font-size: 12px;
+        }
+
+        .sec4-bottom p {
+            font-size: 11px;
+            margin: -10px 0;
+            line-height: 19px;
+            margin-bottom: 8px;
+        }
+
+        .sec4-bottom {
+            margin: 0 5px 0 14px;
+            padding-right: 10px;
+        }
+
+        .sec4-bottom h5 {
+            font-size: 11px;
+        }
+
+        .sec4-bottom-block {
+            margin-bottom: 15px;
+        }
+
+
+        .sec5-mid {
+            padding: 14px;
+            margin-bottom: -12px;
+        }
+
+        .comparing-parameters {
+            top: -15px;
+            font-size: 14px;
+        }
+
+        .scale-cat {
+            display: none;
+        }
+
+        .sec5-scale {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .scale-count::after {
+            left: 30%;
+        }
+
+        .scale div {
+            font-size: 11px;
+        }
+
+        .scale-count-last::after {
+            content: "";
+            font-size: 18px;
+        }
+
+        .sec6 .my-container {
+            flex-direction: column;
+        }
+
+        .sec6 h2 {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        .sec6 h3 {
+            font-size: 12px;
+            line-height: 18px;
+            margin-top: 4px;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        .nav-menu {
+            position: fixed;
+            left: 100%;
+            top: 3rem;
+            flex-direction: column;
+            background-color: #fff;
+            width: 100%;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            z-index: 9;
+        }
+
+        .nav-menu.active {
+            left: -35px;
+        }
+
+        .nav-item {
+            margin: 10px 0;
+        }
+
+        .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .nav-logo {
+            font-size: 16px;
+            font-weight: 700;
+            color: black
+        }
+
+        .nav-link {
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0 12px;
+            color: black
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            z-index: 9999;
+            background: white;
+            top: 0;
+        }
+
+        .sec2 {
+            margin-top: 50px;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .my-container {
+            width: 96%;
+        }
+
+        .breadcrumbs a {
+            font-size: 12px;
+        }
+
+        .breadcrumbs {
+            margin: 10px 0;
+        }
+
+        .sec2-left img {
+            width: 50%;
+        }
+
+        .sec5-cat {
+            font-size: 10px;
+            width: 100px;
+        }
+
+        .insta-posts img {
+            width: 65px;
+        }
+
+        .sec2-compare label {
+            font-size: 12px;
+        }
+
+        #compare {
+            width: 22px;
+            height: 22px;
+            position: relative;
+            top: 7px;
+            left: 8px;
+        }
+
+        .sec2-bottom {
+            margin-bottom: 0;
+        }
+    }
+</style>
+
+<body>
+
+    <header class="header sec1 common-section">
+        <nav class="navbar my-container">
+            <a href="#" class="nav-logo">SITENAME</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">FEATURES PHONES</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">ACCESSORIES</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">WEARABLE WATCH</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">POPULAR BRANDS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">RESOURCES</a>
+                </li>
+                <li class="nav-item">
+                    <div class="search">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="breadcrumbs common-section">
+        <div class="my-container">
+            <a class="active" href="">Home/</a>
+            <a href="">Feature Phones/</a>
+            <a href="">Sample Galaxy S8+</a>
+        </div>
+    </div>
+    <div class="sec2 common-section">
+        <div class="my-container">
+            <div class="sec2-inner">
+                <div class="sec2-left">
+                    <img src="/static/image/samsung.png" alt="">
+                    <div class="sec2-compare">
+                        <input type="checkbox" name="" id="compare">
+                        <label for="compare">Add to Compare</label>
+                    </div>
+                </div>
+                <div class="sec2-right">
+                    <div class="sec2-top">
+                        <h2>Samsung Galaxy S8+</h2>
+                        <div class="sec2-text">
+                            <h3>4.5</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>Android 7.1 Nougat</h4>
+                        </div>
+                        <div class="mobile-colors">
+                            <div class="color1"></div>
+                            <div class="color2"></div>
+                            <div class="color3"></div>
+                        </div>
+                        <div class="sec2-price">
+                            <h5>$ 199.99</h5>
+                            <button>Shop Now</button>
+                        </div>
+                        <div class="rating">
+                            <img src="/static/image/rating-meter.png" alt="">
+                            <div class="rating-text">
+                                <h2>RATING</h2>
+                                <h3><span>81</span>EXCELLENT</h3>
+                            </div>
+                            <img src="/static/image/i-button.png" alt="">
+                        </div>
+                    </div>
+                    <div class="sec2-mid">
+                        <div class="sec2-mid-block">
+                            <img src="/static/image/camera.png" alt="">
+                            <h2>16 MP</h2>
+                            <h3>Good</h3>
+                        </div>
+                        <div class="sec2-mid-block">
+                            <img src="/static/image/ram.png" alt="">
+                            <h2>3GB RAM</h2>
+                            <h3>Average</h3>
+                        </div>
+                        <div class="sec2-mid-block">
+                            <img src="/static/image/size.png" alt="">
+                            <h2>5.5 inch</h2>
+                            <h3>Bad</h3>
+                        </div>
+                        <div class="sec2-mid-block">
+                            <img src="/static/image/battery.png" alt="">
+                            <h2>500 MAH</h2>
+                            <h3>Excellent</h3>
+                        </div>
+                    </div>
+                    <div class="sec2-bottom">
+                        <div class="sec2-bottom-block">
+                            <div class="sec2-bottom-block-inner">
+                                <img src="/static/image/at.png" alt="">
+                                <h2>AT&T</h2>
+                            </div>
+                            <p>$ 29.99 for 500 minutes</p>
+                        </div>
+                        <div class="sec2-bottom-block">
+                            <div class="sec2-bottom-block-inner">
+                                <h2>Sprint</h2>
+                                <img src="/static/image/sprint.png" alt="">
+                            </div>
+                            <p>$ 29.99 for 500 minutes</p>
+                        </div>
+                        <div class="sec2-bottom-block">
+                            <div class="sec2-bottom-block-inner">
+                                <img src="/static/image/at.png" alt="">
+                                <h2>Verizon</h2>
+                            </div>
+                            <p>$ 29.99 for 500 minutes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec2-foot">
+                <div class="owl-carousel owl-theme owl-carousel1">
+                    <div class="item">
+                        <a href="#goCamera">
+                        <div class="sec2-foot-block current">
+                            <img src="/static/image/camera2.png" alt="">
+                            <h6>Camera</h6>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="item">
+                        <a href="#goDisplay">
+                        <div class="sec2-foot-block">
+                            <img src="/static/image/display.png" alt="">
+                            <h6>Display</h6>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="item">
+                        <a href="#goBattery">
+                        <div class="sec2-foot-block">
+                            <img src="/static/image/battery2.png" alt="">
+                            <h6>Battery</h6>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="item">
+                        <a href="#goPerformance">
+                        <div class="sec2-foot-block">
+                            <img src="/static/image/ram2.png" alt="">
+                            <h6>Performance</h6>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="item">
+                        <a href="#goStorage">
+                        <div class="sec2-foot-block">
+                            <img src="/static/image/storage.png" alt="">
+                            <h6>Storage</h6>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="item">
+                        <a href="#goUsability">
+                        <div class="sec2-foot-block">
+                            <img src="/static/image/usablity.png" alt="">
+                            <h6>Usability</h6>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="item">
+                        <a href="#goConnectivity">
+                        <div class="sec2-foot-block">
+                            <img src="/static/image/connectivity.png" alt="">
+                            <h6>Connectivity</h6>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="item">
+                        <a href="goReview">
+                            <div class="sec2-foot-block">
+                                <img src="/static/image/review.png" alt="">
+                                <h6>Reviews</h6>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#goCompare">
+                            <div class="sec2-foot-block">
+                                <img src="/static/image/compare.png" alt="">
+                                <h6>Compare</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sec3 common-section">
+        <div class="my-container sec3-inner">
+            <div class="sec3-left">
+                <div class="sec3-block">
+                    <div class="sec3-block-top">
+                        <img src="/static/image/camera3.png" alt="">
+                        <h2>Camera</h2>
+                    </div>
+                    <div class="sec3-block-mid">
+                        <div class="sec3-text">
+                            <h3>Front Camera</h3>
+                            <h4>8 megapixels</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Recording Resolution</h3>
+                            <h4>1920 x 1080</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Rear Camera</h3>
+                            <h4>13 megapixels</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Intergrated Cameras</h3>
+                            <h4>Yes - Front and Back</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec3-block">
+                    <div class="sec3-block-top">
+                        <img src="/static/image/display.png" alt="">
+                        <h2>Display</h2>
+                    </div>
+                    <div class="sec3-block-mid">
+                        <div class="sec3-text">
+                            <h3>Touch Screen</h3>
+                            <h4>Yes</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Screen Size</h3>
+                            <h4>5.5 inches</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Screen Resolution</h3>
+                            <h4>1920 x 1080</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Intergrated Cameras</h3>
+                            <h4>Yes - Front and Back</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec3-block">
+                    <div class="sec3-block-top">
+                        <img src="/static/image/battery2.png" alt="">
+                        <h2>Battery</h2>
+                    </div>
+                    <div class="sec3-block-mid">
+                        <div class="sec3-text">
+                            <h3>Charging Interface(S)</h3>
+                            <h4>Micro USB</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Wireless Charging</h3>
+                            <h4>No</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Battery Capacity</h3>
+                            <h4>3000 miliampere hours</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Fast Charging</h3>
+                            <h4>TurboPower</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec3-block">
+                    <div class="sec3-block-top">
+                        <img src="/static/image/ram2.png" alt="">
+                        <h2>Performance</h2>
+                    </div>
+                    <div class="sec3-block-mid">
+                        <div class="sec3-text">
+                            <h3>Processor Brand</h3>
+                            <h4>Quatcomm Snapdragon</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Processor Speed</h3>
+                            <h4>2 gigahertz</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Processor Model</h3>
+                            <h4>625</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Memory (RAM)</h3>
+                            <h4>3 gigabytes</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec3-block">
+                    <div class="sec3-block-top">
+                        <img src="/static/image/storage.png" alt="">
+                        <h2>Storage</h2>
+                    </div>
+                    <div class="sec3-block-mid">
+                        <div class="sec3-text">
+                            <h3>Expandable Memory Up Tp</h3>
+                            <h4>128 gigabytes</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Internal Memory</h3>
+                            <h4>32 gigabytes</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec3-block">
+                    <div class="sec3-block-top">
+                        <img src="/static/image/usablity.png" alt="">
+                        <h2>Usablity</h2>
+                    </div>
+                    <div class="sec3-block-mid">
+                        <div class="sec3-text">
+                            <h3>Headphone Jack</h3>
+                            <h4>Yes</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Weight</h3>
+                            <h4>5.93 ounces</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Widht</h3>
+                            <h4>3 inches</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Keyborad Type </h3>
+                            <h4>Touch Screen</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Water Resistant </h3>
+                            <h4>No</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec3-block">
+                    <div class="sec3-block-top">
+                        <img src="/static/image/connectivity.png" alt="">
+                        <h2>Connectivity</h2>
+                    </div>
+                    <div class="sec3-block-mid">
+                        <div class="sec3-text">
+                            <h3>SIM Card Size</h3>
+                            <h4>Nano SIM</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>Internet Connectable</h3>
+                            <h4>Yes</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>4G LTE Brand</h3>
+                            <h4>1,12,13,17,2,25,26,3,38,4,41,5,66,7,8</h4>
+                        </div>
+                        <div class="sec3-text">
+                            <h3>SIM Card Slots </h3>
+                            <h4>Single SIM</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec3-right">
+                <div class="sec3-right-top">
+                    <img src="/static/image/shake.png" alt="">
+                </div>
+                <div class="sec3-right-mid">
+                    <h2>Related Products</h2>
+                    <div class="sec3-mid-inner">
+                        <div class="sec3-mid-img">
+                            <img src="/static/image/samsung2.png" alt="">
+                        </div>
+                        <div class="sec3-mid-text">
+                            <h3>Samsung Galaxy A6</h3>
+                            <h4>$ 199.99</h4>
+                            <h5>4.5</h5>
+                            <img src="/static/image/star.png" alt="">
+                        </div>
+                    </div>
+                    <div class="sec3-mid-inner">
+                        <div class="sec3-mid-img">
+                            <img src="/static/image/samsung2.png" alt="">
+                        </div>
+                        <div class="sec3-mid-text">
+                            <h3>Samsung Galaxy A6</h3>
+                            <h4>$ 199.99</h4>
+                            <h5>4.5</h5>
+                            <img src="/static/image/star.png" alt="">
+                        </div>
+                    </div>
+                    <div class="sec3-mid-inner">
+                        <div class="sec3-mid-img">
+                            <img src="/static/image/samsung2.png" alt="">
+                        </div>
+                        <div class="sec3-mid-text">
+                            <h3>Samsung Galaxy A6</h3>
+                            <h4>$ 199.99</h4>
+                            <h5>4.5</h5>
+                            <img src="/static/image/star.png" alt="">
+                        </div>
+                    </div>
+                    <div class="sec3-mid-inner">
+                        <div class="sec3-mid-img">
+                            <img src="/static/image/samsung2.png" alt="">
+                        </div>
+                        <div class="sec3-mid-text">
+                            <h3>Samsung Galaxy A6</h3>
+                            <h4>$ 199.99</h4>
+                            <h5>4.5</h5>
+                            <img src="/static/image/star.png" alt="">
+                        </div>
+                    </div>
+                    <div class="sec3-mid-inner">
+                        <div class="sec3-mid-img">
+                            <img src="/static/image/samsung2.png" alt="">
+                        </div>
+                        <div class="sec3-mid-text">
+                            <h3>Samsung Galaxy A6</h3>
+                            <h4>$ 199.99</h4>
+                            <h5>4.5</h5>
+                            <img src="/static/image/star.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sec4 common-section">
+        <div class="my-container">
+            <div class="sec4-top">
+                <div class="sec4-top-left">
+                    <img src="/static/image/review.png" alt="">
+                    <h2>Reviews</h2>
+                </div>
+                <div class="sec4-top-right">
+                    <label for="sort">Sort By</label>
+                    <select name="sort" id="sort">
+                        <option value="">Relevance</option>
+                        <option value="">Date</option>
+                        <option value="">Ratings</option>
+                    </select>
+                </div>
+            </div>
+            <div class="sec4-mid">
+                <div class="owl-carousel owl-theme owl-carousel2">
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>All Reviews (40)</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>Wireless (21)</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>Data (4)</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>Bluetooth (3)</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>Carrier (2)</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>Email (2)</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>Internet (2)</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>LTE (2)</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>Email (2)</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>Ranges (12)</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sec4-mid-block">
+                            <h3>signal (22)</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sec4-bottom">
+                <div class="sec4-bottom-inner">
+                    <h2>
+                        <span class="positive">+</span>
+                        Positive Reviews
+                    </h2>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>4.5</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The best thing with this phone, I can use it will all the carries in the US.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>3.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>I did not think it was worth 70 dollars fir the extra 32 GB and 1 GB Ram and I don't know
+                            miss it so far</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>3.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>Not a great phone don't break your bank for daily driver phone</p>
+                        <h5>John Doe</h5>
+                    </div>
+                </div>
+                <div class="sec4-bottom-inner">
+                    <h2>
+                        <span class="negative">-</span>
+                        Negative Reviews
+                    </h2>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.5</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>This phone display is not that great and camera is not good either.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>2.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>Long time to get the battery charged full</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.5</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>This phone display is not that great and camera is not good either.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>2.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>Long time to get the battery charged full</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.5</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>This phone display is not that great and camera is not good either.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>2.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>Long time to get the battery charged full</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.5</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>This phone display is not that great and camera is not good either.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>2.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>Long time to get the battery charged full</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.5</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>This phone display is not that great and camera is not good either.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>2.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>Long time to get the battery charged full</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.5</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>This phone display is not that great and camera is not good either.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>2.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>Long time to get the battery charged full</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.5</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>This phone display is not that great and camera is not good either.</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>2.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>Long time to get the battery charged full</p>
+                        <h5>John Doe</h5>
+                    </div>
+                    <div class="sec4-bottom-block">
+                        <div class="sec4-block-text">
+                            <h3>1.0</h3>
+                            <img src="/static/image/star.png" alt="">
+                            <h4>26 Jan, 2018</h4>
+                        </div>
+                        <p>The headphones are missing and though listed as 4130 battery is on really 4100.</p>
+                        <h5>John Doe</h5>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sec5 common-section">
+        <div class="my-container">
+            <div class="sec4-top">
+                <div class="sec4-top-left">
+                    <img src="/static/image/review.png" alt="">
+                    <h2>Compare</h2>
+                </div>
+            </div>
+            <div class="sec5-mid">
+
+                <div class="outer-block">
+                    <div class="sec5-cat">All Phones</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-green sec5-colors"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat">All Android Phones</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-red sec5-colors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat">Current</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-blue sec5-colors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat scale-cat"></div>
+                    <div class="sec5-scale">
+                        <div class="scale">
+                            <div class="scale-count">0</div>
+                            <div class="scale-count">2</div>
+                            <div class="scale-count">4</div>
+                            <div class="scale-count">6</div>
+                            <div class="scale-count">8</div>
+                            <div class="scale-count">10</div>
+                            <div class="scale-count">12</div>
+                            <div class="scale-count">14</div>
+                            <div class="scale-count-last">16</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="comparing-parameters">Camera Megapixels</div>
+                </div>
+            </div>
+            <div class="sec5-mid">
+
+                <div class="outer-block">
+                    <div class="sec5-cat">All Phones</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-green sec5-colors"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat">All Android Phones</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-red sec5-colors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat">Current</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-blue sec5-colors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat scale-cat  "></div>
+                    <div class="sec5-scale">
+                        <div class="scale">
+                            <div class="scale-count">0</div>
+                            <div class="scale-count">2</div>
+                            <div class="scale-count">4</div>
+                            <div class="scale-count">6</div>
+                            <div class="scale-count">8</div>
+                            <div class="scale-count">10</div>
+                            <div class="scale-count">12</div>
+                            <div class="scale-count">14</div>
+                            <div class="scale-count-last">16</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="comparing-parameters">RAM (6BG)</div>
+                </div>
+            </div>
+            <div class="sec5-mid">
+
+                <div class="outer-block">
+                    <div class="sec5-cat">All Phones</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-green sec5-colors"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat">All Android Phones</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-red sec5-colors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat">Current</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-blue sec5-colors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat scale-cat"></div>
+                    <div class="sec5-scale">
+                        <div class="scale">
+                            <div class="scale-count">0</div>
+                            <div class="scale-count">2</div>
+                            <div class="scale-count">4</div>
+                            <div class="scale-count">6</div>
+                            <div class="scale-count">8</div>
+                            <div class="scale-count">10</div>
+                            <div class="scale-count">12</div>
+                            <div class="scale-count">14</div>
+                            <div class="scale-count-last">16</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="comparing-parameters">Display (Inches)</div>
+                </div>
+            </div>
+            <div class="sec5-mid">
+
+                <div class="outer-block">
+                    <div class="sec5-cat">All Phones</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-green sec5-colors"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat">All Android Phones</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-red sec5-colors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat">Current</div>
+                    <div class="sec5-outer-div">
+                        <div class="sec5-grey-area">
+                            <div class="sec5-blue sec5-colors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="outer-block">
+                    <div class="sec5-cat scale-cat"></div>
+                    <div class="sec5-scale">
+                        <div class="scale">
+                            <div class="scale-count">0</div>
+                            <div class="scale-count">2</div>
+                            <div class="scale-count">4</div>
+                            <div class="scale-count">6</div>
+                            <div class="scale-count">8</div>
+                            <div class="scale-count">10</div>
+                            <div class="scale-count">12</div>
+                            <div class="scale-count">14</div>
+                            <div class="scale-count-last">16</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="comparing-parameters">Battery (MAH)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="sec6  common-section">
+        <div class="my-container">
+            <div class="footer-block">
+                <h2>SITENAME</h2>
+                <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium dolorem nesciunt commodi totam
+                    quasi velit neque provident! Architecto rem minima mollitia illum exercitationem est tenetur
+                    voluptate.</h3>
+            </div>
+            <div class="footer-block">
+                <h2>Twiiter Feeds</h2>
+                <h3>Car & Bicycle Repair Theme Design - Home version 1 @dribble https://t.co/jg5NmKzRct #dribble
+                    #uidesign #uxdesign.. https://t.coUAbC5JFNzh 4w ago</h3>
+            </div>
+            <div class="footer-block">
+                <h2>Instagram Feeds</h2>
+                <div class="insta-posts">
+                    <img src="/static/image/post1.png" alt="">
+                    <img src="/static/image/post2.png" alt="">
+                    <img src="/static/image/post3.png" alt="">
+                    <img src="/static/image/post1.png" alt="">
+                    <img src="/static/image/post4.png" alt="">
+                    <img src="/static/image/post5.png" alt="">
+                    <img src="/static/image/post6.png" alt="">
+                    <img src="/static/image/post4.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+    const navLink = document.querySelectorAll(".nav-link");
+
+    navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }
+    $('.owl-carousel1').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        mouseDrag: false,
+        responsive: {
+            0: {
+                items: 3
+            },
+            900: {
+                items: 9
+            }
+        }
+    })
+    $('.owl-carousel2').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        mouseDrag: false,
+        responsive: {
+            0: {
+                items: 3
+            },
+            900: {
+                items: 11
+            }
+        }
+    })
+</script>
+
+</html>
+
+
+<div class="sec common-section">
+    <div class="my-container">
+
+    </div>
+</div>
